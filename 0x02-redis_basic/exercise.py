@@ -5,6 +5,7 @@ redis and uuid modules
 """
 import redis
 import uuid
+from typing import Union
 
 
 class Cache:
@@ -18,7 +19,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    def store(self, data: bytes) -> str:
+    def store(self, data: Union[str, float, bytes, int]) -> str:
         """
         Store method
         """
